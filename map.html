@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interactive Campus Map</title>
+<style>
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    font-family: 'Poppins', 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #f8f9fa, #d7e3fc);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+  }
+
+  .campus-container {
+    position: relative;
+    display: inline-block;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    background: #fff;
+  }
+
+  .campus-img {
+    width: 100%;
+    max-width: 1000px;
+    height: auto;
+    display: block;
+  }
+
+  .label {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.85);
+    color: #222;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    white-space: nowrap;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    z-index: 10;
+  }
+
+  .label::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-top-color: rgba(255, 255, 255, 0.85);
+  }
+
+  .label:hover {
+    background: #0078ff;
+    color: #fff;
+    transform: translateY(-3px);
+  }
+
+  /* MODAL */
+  .modal {
+    position: fixed;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.55);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(4px);
+    z-index: 100;
+  }
+
+  .modal-content {
+    width: 90%;
+    max-width: 400px;
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    text-align: center;
+  }
+
+  .modal-img {
+    width: 100%;
+    border-radius: 12px;
+    transition: filter 0.35s ease;
+  }
+
+  .modal-img.blur { filter: blur(12px); }
+
+  .details {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    color: #ffffff;
+    text-align: left;
+    display: none;
+    z-index: 10;
+  }
+
+  .details.show { display: block; animation: fadeIn 0.4s ease forwards; }
+
+  @keyframes fadeIn {
+    from {opacity: 0; transform: translateY(15px);}
+    to {opacity: 1; transform: translateY(0);}
+  }
+
+  .btn { 
+    display: inline-block;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    color: white;
+    margin: 5px;
+  }
+
+  #seeDetailsBtn { background: #0078ff; }
+  #backBtn, #closeModal { background: #555; }
+
+  .btn-row {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  @media (max-width: 768px) {
+    .label { font-size: 12px; padding: 5px 8px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="campus-container">
+  <img src="Icogram 2025-10-27 13_49 (1).png" alt="Campus Map" class="campus-img">
+
+  <!-- Labels -->
+  <div class="label" style="left:32%; top:59%;" data-img="babalo.jpg" data-desc="Open area used for school events, sports, and gatherings.">Ground</div>
+  <div class="label" style="left:58%; top:25%;" data-img="images/ground2.jpg" data-desc="An extended ground space often used for practice and recreation.">Ground 2</div>
+  <div class="label" style="left:81%; top:-1%;" data-img="basketball.jpg" data-desc="Outdoor court used for basketball games and PE classes.">Basketball Court</div>
+  <div class="label" style="left:42%; top:42%;" data-img="stage.jpg" data-desc="Stage area for ceremonies, performances, and events.">Stage</div>
+  <div class="label" style="left:83%; top:28%;" data-img="library.jpg" data-desc="The main library containing books, digital resources, and study areas.">Library</div>
+  <div class="label" style="left:47%; top:34%;" data-img="administration.jpg" data-desc="Administrative offices including registrar, finance, and principal.">Administration</div>
+  <div class="label" style="left:62%; top:64%;" data-img="babalo.jpg" data-desc="Hospitality Management Hall – classrooms and training kitchens.">HM Hall</div>
+  <div class="label" style="left:61%; top:10%;" data-img="canteen.jpg" data-desc="Canteen serving meals, snacks, and refreshments for students.">Canteen</div>
+  <div class="label" style="left:42%; top:80%;" data-img="sciencelabs.jpg" data-desc="Science laboratories for Chemistry, Biology, and Physics experiments.">Science Labs</div>
+  <div class="label" style="left:2%; top:52%;" data-img="maingate.jpg" data-desc="Main entrance and exit of the campus. Security guards stationed here.">Main Gate</div>
+  <div class="label" style="left:68%; top:40%;" data-img="highschool.jpg" data-desc="High school classrooms and faculty offices.">Highschool Buildings</div>
+  <div class="label" style="left:77.5%; top:7%;" data-img="chapel.jpg" data-desc="Campus chapel for religious activities and quiet reflection.">Chapel</div>
+  <div class="label" style="left:3%; top:41%;" data-img="midwifery.jpg" data-desc="Midwifery department classrooms and laboratory.">Midwifery</div>
+  <div class="label" style="left:67%; top:0%;" data-img="pmv.jpg" data-desc="PMV (Practical Machine and Vehicle) training facility.">PMV</div>
+  <div class="label" style="left:15%; top:36%;" data-img="pt.jpg" data-desc="Physical Therapy department with rehabilitation lab and classrooms.">PT</div>
+  <div class="label" style="left:16%; top:28%;" data-img="rotc.jpg" data-desc="ROTC (Reserve Officers' Training Corps) building for drills and lectures.">ROTC Building</div>
+  <div class="label" style="left:24%; top:20%;" data-img="bluebuilding.jpg" data-desc="Blue Building – general classrooms and IT laboratories.">Blue Building</div>
+  <div class="label" style="left:32%; top:10%;" data-img="highschool_comlab.jpg" data-desc="High school and computer laboratory rooms.">Highschool/Comlab</div>
+  <div class="label" style="left:43%; top:-1%;" data-img="elementary.jpg" data-desc="Elementary department building with classrooms and playground nearby.">Elementary Building</div>
+</div>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <img id="modalImg" class="modal-img">
+    <div class="details" id="detailsBox">
+      <h3 id="detailsTitle"></h3>
+      <p id="detailsDesc"></p>
+    </div>
+    <div class="btn-row">
+      <div class="btn" id="seeDetailsBtn">See Details</div>
+      <div class="btn" id="backBtn">Back</div>
+      <div class="btn" id="closeModal">Close</div>
+    </div>
+  </div>
+</div>
+
+<script>
+const labels = document.querySelectorAll('.label');
+const modal = document.getElementById('modal');
+const modalImg = document.getElementById('modalImg');
+const detailsBox = document.getElementById('detailsBox');
+const detailsTitle = document.getElementById('detailsTitle');
+const detailsDesc = document.getElementById('detailsDesc');
+const seeDetailsBtn = document.getElementById('seeDetailsBtn');
+const backBtn = document.getElementById('backBtn');
+const closeModal = document.getElementById('closeModal');
+
+labels.forEach(label => {
+  label.addEventListener('click', () => {
+    const img = label.getAttribute('data-img') || 'Icogram 2025-10-27 13_49 (1).png';
+    const desc = label.getAttribute('data-desc') || 'No description available';
+    const title = label.textContent;
+
+    modalImg.src = img;
+    detailsTitle.textContent = title;
+    detailsDesc.textContent = desc;
+
+    modal.style.display = 'flex';
+    modalImg.classList.remove('blur');
+    detailsBox.classList.remove('show');
+
+    // hide all labels while modal is open
+    labels.forEach(l => l.style.display = 'none');
+  });
+});
+
+seeDetailsBtn.onclick = () => {
+  modalImg.classList.add('blur');
+  detailsBox.classList.add('show');
+};
+
+backBtn.onclick = () => {
+  modalImg.classList.remove('blur');
+  detailsBox.classList.remove('show');
+};
+
+closeModal.onclick = () => {
+  modal.style.display = 'none';
+  modalImg.classList.remove('blur');
+  detailsBox.classList.remove('show');
+  labels.forEach(l => l.style.display = 'block');
+};
+
+window.onclick = e => {
+  if (e.target === modal) {
+    modal.style.display = 'none';
+    modalImg.classList.remove('blur');
+    detailsBox.classList.remove('show');
+    labels.forEach(l => l.style.display = 'block');
+  }
+};
+</script>
+
+</body>
+</html>
