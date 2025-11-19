@@ -11,6 +11,6 @@
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
-    "serve": "^14.2.5"
-  }
+  "serve": "^14.2.0"
+}
 }
