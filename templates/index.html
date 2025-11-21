@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>My QR Code</title>
+<title>Campus QR Code</title>
 <style>
   body {
     font-family: Arial, sans-serif;
@@ -31,7 +31,7 @@
 <body>
 
 <h1>Campus QR Code</h1>
-<img id="qrcode" src="static/qrcode.png" alt="QR Code">
+<img id="qrcode" src="{{ url_for('static', filename='qrcode.png') }}" alt="QR Code">
 
 </body>
 </html>
