@@ -141,28 +141,84 @@
 <body>
 
 <div class="campus-container">
-  <img src="img/campus_map/campus_map.png" alt="Campus Map" class="campus-img">
+  <img src="{{ url_for('static', filename='img/campus_map/campus_map.png') }}" alt="Campus Map" class="campus-img">
 
   <!-- Labels -->
-  <div class="label" style="left:32%; top:59%;" data-img="babalo.jpg" data-desc="Open area used for school events, sports, and gatherings.">Ground</div>
-  <div class="label" style="left:58%; top:25%;" data-img="images/ground2.jpg" data-desc="An extended ground space often used for practice and recreation.">Ground 2</div>
-  <div class="label" style="left:81%; top:-1%;" data-img="basketball.jpg" data-desc="Outdoor court used for basketball games and PE classes.">Basketball Court</div>
-  <div class="label" style="left:42%; top:42%;" data-img="stage.jpg" data-desc="Stage area for ceremonies, performances, and events.">Stage</div>
-  <div class="label" style="left:83%; top:28%;" data-img="library.jpg" data-desc="The main library containing books, digital resources, and study areas.">Library</div>
-  <div class="label" style="left:47%; top:34%;" data-img="administration.jpg" data-desc="Administrative offices including registrar, finance, and principal.">Administration</div>
-  <div class="label" style="left:62%; top:64%;" data-img="img/field_pic/babalo.jpg" data-desc="Hospitality Management Hall – classrooms and training kitchens.">HM Hall</div>
-  <div class="label" style="left:61%; top:10%;" data-img="canteen.jpg" data-desc="Canteen serving meals, snacks, and refreshments for students.">Canteen</div>
-  <div class="label" style="left:42%; top:80%;" data-img="sciencelabs.jpg" data-desc="Science laboratories for Chemistry, Biology, and Physics experiments.">Science Labs</div>
-  <div class="label" style="left:2%; top:52%;" data-img="maingate.jpg" data-desc="Main entrance and exit of the campus. Security guards stationed here.">Main Gate</div>
-  <div class="label" style="left:68%; top:40%;" data-img="highschool.jpg" data-desc="High school classrooms and faculty offices.">Highschool Buildings</div>
-  <div class="label" style="left:77.5%; top:7%;" data-img="chapel.jpg" data-desc="Campus chapel for religious activities and quiet reflection.">Chapel</div>
-  <div class="label" style="left:3%; top:41%;" data-img="midwifery.jpg" data-desc="Midwifery department classrooms and laboratory.">Midwifery</div>
-  <div class="label" style="left:67%; top:0%;" data-img="pmv.jpg" data-desc="PMV (Practical Machine and Vehicle) training facility.">PMV</div>
-  <div class="label" style="left:15%; top:36%;" data-img="pt.jpg" data-desc="Physical Therapy department with rehabilitation lab and classrooms.">PT</div>
-  <div class="label" style="left:16%; top:28%;" data-img="rotc.jpg" data-desc="ROTC (Reserve Officers' Training Corps) building for drills and lectures.">ROTC Building</div>
-  <div class="label" style="left:24%; top:20%;" data-img="bluebuilding.jpg" data-desc="Blue Building – general classrooms and IT laboratories.">Blue Building</div>
-  <div class="label" style="left:32%; top:10%;" data-img="highschool_comlab.jpg" data-desc="High school and computer laboratory rooms.">Highschool/Comlab</div>
-  <div class="label" style="left:43%; top:-1%;" data-img="elementary.jpg" data-desc="Elementary department building with classrooms and playground nearby.">Elementary Building</div>
+<div class="label" style="left:32%; top:59%;" 
+       data-img="{{ url_for('static', filename='img/field_pic/babalo.jpg') }}" 
+       data-desc="Open area used for school events, sports, and gatherings.">Ground</div>
+
+  <div class="label" style="left:58%; top:25%;" 
+       data-img="{{ url_for('static', filename='img/ground2.jpg') }}" 
+       data-desc="An extended ground space often used for practice and recreation.">Ground 2</div>
+
+  <div class="label" style="left:81%; top:-1%;" 
+       data-img="{{ url_for('static', filename='img/basketball.jpg') }}" 
+       data-desc="Outdoor court used for basketball games and PE classes.">Basketball Court</div>
+
+  <div class="label" style="left:42%; top:42%;" 
+       data-img="{{ url_for('static', filename='img/stage.jpg') }}" 
+       data-desc="Stage area for ceremonies, performances, and events.">Stage</div>
+
+  <div class="label" style="left:83%; top:28%;" 
+       data-img="{{ url_for('static', filename='img/library.jpg') }}" 
+       data-desc="The main library containing books, digital resources, and study areas.">Library</div>
+
+  <div class="label" style="left:47%; top:34%;" 
+       data-img="{{ url_for('static', filename='img/administration.jpg') }}" 
+       data-desc="Administrative offices including registrar, finance, and principal.">Administration</div>
+
+  <div class="label" style="left:62%; top:64%;" 
+       data-img="{{ url_for('static', filename='img/field_pic/babalo.jpg') }}" 
+       data-desc="Hospitality Management Hall – classrooms and training kitchens.">HM Hall</div>
+
+  <div class="label" style="left:61%; top:10%;" 
+       data-img="{{ url_for('static', filename='img/canteen.jpg') }}" 
+       data-desc="Canteen serving meals, snacks, and refreshments for students.">Canteen</div>
+
+  <div class="label" style="left:42%; top:80%;" 
+       data-img="{{ url_for('static', filename='img/sciencelabs.jpg') }}" 
+       data-desc="Science laboratories for Chemistry, Biology, and Physics experiments.">Science Labs</div>
+
+  <div class="label" style="left:2%; top:52%;" 
+       data-img="{{ url_for('static', filename='img/maingate.jpg') }}" 
+       data-desc="Main entrance and exit of the campus. Security guards stationed here.">Main Gate</div>
+
+  <div class="label" style="left:68%; top:40%;" 
+       data-img="{{ url_for('static', filename='img/highschool.jpg') }}" 
+       data-desc="High school classrooms and faculty offices.">Highschool Buildings</div>
+
+  <div class="label" style="left:77.5%; top:7%;" 
+       data-img="{{ url_for('static', filename='img/chapel.jpg') }}" 
+       data-desc="Campus chapel for religious activities and quiet reflection.">Chapel</div>
+
+  <div class="label" style="left:3%; top:41%;" 
+       data-img="{{ url_for('static', filename='img/midwifery.jpg') }}" 
+       data-desc="Midwifery department classrooms and laboratory.">Midwifery</div>
+
+  <div class="label" style="left:67%; top:0%;" 
+       data-img="{{ url_for('static', filename='img/pmv.jpg') }}" 
+       data-desc="PMV (Practical Machine and Vehicle) training facility.">PMV</div>
+
+  <div class="label" style="left:15%; top:36%;" 
+       data-img="{{ url_for('static', filename='img/pt.jpg') }}" 
+       data-desc="Physical Therapy department with rehabilitation lab and classrooms.">PT</div>
+
+  <div class="label" style="left:16%; top:28%;" 
+       data-img="{{ url_for('static', filename='img/rotc.jpg') }}" 
+       data-desc="ROTC (Reserve Officers' Training Corps) building for drills and lectures.">ROTC Building</div>
+
+  <div class="label" style="left:24%; top:20%;" 
+       data-img="{{ url_for('static', filename='img/bluebuilding.jpg') }}" 
+       data-desc="Blue Building general classrooms and IT laboratories.">Blue Building</div>
+
+  <div class="label" style="left:32%; top:10%;" 
+       data-img="{{ url_for('static', filename='img/highschool_comlab.jpg') }}" 
+       data-desc="High school and computer laboratory rooms.">Highschool/Comlab</div>
+
+  <div class="label" style="left:43%; top:-1%;" 
+       data-img="{{ url_for('static', filename='img/elementary.jpg') }}" 
+       data-desc="Elementary department building with classrooms and playground nearby.">Elementary Building</div>
 </div>
 
 <!-- MODAL -->
