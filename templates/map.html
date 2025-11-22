@@ -18,11 +18,13 @@
     padding: 20px;
   }
 
-  .campus-img {
-  width: 100%;   /* fill container width */
-  height: auto;  /* maintain aspect ratio */
-  display: block;
+  @media (max-width: 768px) {
+  .label {
+    font-size: 10px;    /* smaller font on small screens */
+    padding: 4px 6px;
+  }
 }
+
 
   .campus-container {
     position: relative;
