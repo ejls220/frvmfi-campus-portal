@@ -1,0 +1,18 @@
+.campus-img {
+  width: 100%;       /* image takes full width of container */
+  max-width: 1000px; /* optional: keep a max width for desktop */
+  height: auto;      /* maintain aspect ratio */
+  display: block;
+}
+
+.campus-container {
+  position: relative;
+  display: inline-block;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  background: #fff;
+
+  width: 100%;       /* make container full width of screen */
+  max-width: 1000px; /* keep it reasonable on desktop */
+}
