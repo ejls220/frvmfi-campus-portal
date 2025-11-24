@@ -1,7 +1,7 @@
 import qrcode
 import os
 
-url = "https://frvmfi-campus-portal-85e78479c84b.herokuapp.com/map"  # Points to map route
+url = "https://ejls220.github.io/frvmfi-campus-portal/map.html"
 
 qr = qrcode.QRCode(
     version=1,
