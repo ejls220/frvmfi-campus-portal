@@ -13,8 +13,14 @@ body {
   background: linear-gradient(135deg, #f8f9fa, #d7e3fc);
   min-height: 100vh;
   padding: 20px;
-  /* remove flexbox to allow scrolling if window is smaller than content */
-  overflow-x: auto; /* enable horizontal scroll on small screens */
+  overflow-x: auto; /* allow horizontal scroll if viewport is smaller than container */
+}
+
+ .center-wrap {
+  display: flex;
+  justify-content: center;
+  /* make sure it takes at least the whole viewport width */
+  min-width: 100vw;
 }
 
 
@@ -27,7 +33,7 @@ body {
   background: #fff;
   width: 1000px;
   min-width: 1000px;
-  max-width: 1000px;
+  max-width: 1000px
 }
 
 .campus-img {
