@@ -7,41 +7,38 @@
 <style>
   * { box-sizing: border-box; }
 
-body {
-  margin: 0;
-  font-family: 'Poppins', 'Segoe UI', sans-serif;
-  background: linear-gradient(135deg, #f8f9fa, #d7e3fc);
-  min-height: 100vh;
-  padding: 20px;
-  overflow-x: auto; /* allow horizontal scroll if viewport is smaller than container */
-}
+  body {
+    margin: 0;
+    font-family: 'Poppins', 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #f8f9fa, #d7e3fc);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+  }
 
- .center-wrap {
-  display: flex;
-  justify-content: center;
-  /* make sure it takes at least the whole viewport width */
-  min-width: 100vw;
-}
+  @media (max-width: 768px) {
+    .label {
+      font-size: 10px;
+      padding: 4px 6px;
+    }
 
+  .campus-container {
+    position: relative;
+    display: inline-block;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    background: #fff;
+  }
 
-.campus-container {
-  position: relative;
-  display: inline-block;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-  background: #fff;
-  width: 1000px;
-  min-width: 1000px;
-  max-width: 1000px
-}
-
-.campus-img {
-  width: 1000px;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-}
+  .campus-img {
+    width: 100%;
+    max-width: 1000px;
+    height: auto;
+    display: block;
+  }
 
   .label {
     position: absolute;
