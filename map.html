@@ -69,26 +69,29 @@
   }
 
   /* MODAL */
-  .modal {
-    position: fixed;
-    left: 0; top: 0;
-    width: 100%; height: 100%;
-    background: rgba(0,0,0,0.55);
-    display: none;
-    justify-content: center;
-    align-items: center;
-    backdrop-filter: blur(4px);
-    z-index: 100;
-  }
 
-  .modal-content {
-    width: 90%;
-    max-width: 400px;
-    position: relative;
-    border-radius: 16px;
-    overflow: hidden;
-    text-align: center;
-  }
+ .modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(4px);
+  z-index: 100;
+  width: 100vw !important;
+  height: 100vh !important;
+}
+
+.modal-content {
+  width: 95vw;
+  max-width: 400px;
+  background: #fff;
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  text-align: center;
+}
 
   .modal-img {
     width: 100%;
