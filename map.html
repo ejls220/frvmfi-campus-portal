@@ -7,16 +7,15 @@
 <style>
   * { box-sizing: border-box; }
 
-  body {
-    margin: 0;
-    font-family: 'Poppins', 'Segoe UI', sans-serif;
-    background: linear-gradient(135deg, #f8f9fa, #d7e3fc);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    padding: 20px;
-  }
+body {
+  margin: 0;
+  font-family: 'Poppins', 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #f8f9fa, #d7e3fc);
+  min-height: 100vh;
+  padding: 20px;
+  /* remove flexbox to allow scrolling if window is smaller than content */
+  overflow-x: auto; /* enable horizontal scroll on small screens */
+}
 
 
 .campus-container {
@@ -35,6 +34,7 @@
   width: 1000px;
   height: auto;
   display: block;
+  margin: 0 auto;
 }
 
   .label {
