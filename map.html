@@ -15,17 +15,22 @@
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    padding: 20px;
   }
 
+  @media (max-width: 768px) {
+    .label {
+      font-size: 0px;
+      padding: 0px 0px;
+    }
+
   .campus-container {
-   min-width: 1000px;
     position: relative;
-   display: flex;
+    display: inline-block;
     border-radius: 16px;
     overflow: hidden;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
     background: #fff;
-   min-width: 1000px;
   }
 
   .campus-img {
@@ -68,34 +73,32 @@
   }
 
   /* MODAL */
+  .modal {
+    position: fixed;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.55);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(4px);
+    z-index: 100;
+  }
 
- .modal {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.55);
-  display: none;
-  justify-content: center;
-  align-items: center;
-  backdrop-filter: blur(4px);
-  z-index: 100;
-  width: 100vw !important;
-  height: 100vh !important;
-}
+  .modal-content {
+    width: 90%;
+    max-width: 400px;
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    text-align: center;
+  }
 
-.modal-content {
-  width: 95vw;
-  max-width: 400px;
-  background: #fff;
-  position: relative;
-  border-radius: 16px;
-  overflow: hidden;
-  text-align: center;
-}
-
-.modal-img {
-  display: block;
-  margin: 0 auto;
-}
+  .modal-img {
+    width: 100%;
+    border-radius: 12px;
+    transition: filter 0.35s ease;
+  }
 
   .modal-img.blur { filter: blur(12px); }
 
