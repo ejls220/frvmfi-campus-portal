@@ -18,6 +18,13 @@
     padding: 20px;
   }
 
+  @media (max-width: 768px) {
+    .label {
+      font-size: 10px;
+      padding: 4px 6px;
+    }
+  }
+
   .campus-container {
     position: relative;
     display: inline-block;
@@ -25,8 +32,6 @@
     overflow: hidden;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
     background: #fff;
-    max-width: 100vw;
-    width: 100%;
   }
 
   .campus-img {
@@ -72,32 +77,28 @@
   .modal {
     position: fixed;
     left: 0; top: 0;
-    width: 100vw; height: 100vh;
+    width: 100%; height: 100%;
     background: rgba(0,0,0,0.55);
     display: none;
     justify-content: center;
     align-items: center;
     backdrop-filter: blur(4px);
     z-index: 100;
-    padding: 0;
   }
 
   .modal-content {
-    width: 90vw;
+    width: 90%;
     max-width: 400px;
     position: relative;
     border-radius: 16px;
     overflow: hidden;
     text-align: center;
-    background: #222;
   }
 
   .modal-img {
     width: 100%;
     border-radius: 12px;
     transition: filter 0.35s ease;
-    max-height: 45vh;
-    object-fit: cover;
   }
 
   .modal-img.blur { filter: blur(12px); }
@@ -127,9 +128,6 @@
     cursor: pointer;
     color: white;
     margin: 5px;
-    min-width: 80px;
-    font-size: 1rem;
-    text-align: center;
   }
 
   #seeDetailsBtn { background: #0078ff; }
@@ -140,75 +138,10 @@
     justify-content: center;
     gap: 10px;
     margin-top: 10px;
-    flex-wrap: wrap;
   }
 
-  /* Tablet and below */
-  @media (max-width: 1000px) {
-    .campus-img {
-      max-width: 100vw;
-      width: 100vw;
-      height: auto;
-    }
-    .campus-container {
-      max-width: 100vw;
-      width: 100vw;
-      border-radius: 0;
-    }
-  }
-
-  /* Mobile styles */
-  @media (max-width: 600px) {
-    body {
-      padding: 0;
-      min-height: 100vh;
-    }
-    .campus-container {
-      border-radius: 0 !important;
-      width: 100vw;
-      max-width: 100vw;
-      overflow-x: auto;
-    }
-    .campus-img {
-      width: 100vw;
-      height: auto;
-      min-width: 320px;
-      max-width: 100vw;
-      display: block;
-    }
-    .label {
-      font-size: 11px;
-      padding: 4px 6px;
-      border-radius: 6px;
-      max-width: 60vw;
-    }
-    .modal-content {
-      width: 98vw;
-      max-width: 98vw;
-      border-radius: 10px;
-    }
-    .btn-row {
-      flex-direction: column;
-      gap: 6px;
-    }
-    .details {
-      left: 10px;
-      right: 10px;
-      top: 10px;
-      font-size: 0.95rem;
-    }
-    .modal-img {
-      border-radius: 10px;
-      max-height: 30vh;
-    }
-    .btn {
-      min-width: unset;
-      font-size: 1rem;
-      padding: 10px 0;
-      width: 90%;
-      margin-left: auto;
-      margin-right: auto;
-    }
+  @media (max-width: 768px) {
+    .label { font-size: 12px; padding: 5px 8px; }
   }
 </style>
 </head>
