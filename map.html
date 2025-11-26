@@ -13,63 +13,64 @@
   background: linear-gradient(135deg, #f8f9fa, #d7e3fc);
   min-height: 100vh;
   padding: 20px;
-  overflow-x: auto;
   display: flex;
   justify-content: center;
   align-items: flex-start;
+  overflow-x: hidden;
+}
+
+ .outer-scroll {
+  width: 100vw;
+  overflow-x: auto;
+  display: flex;
+  justify-content: center;
 }
  
   .campus-container {
   position: relative;
-  width: 1000px;
-  min-width: 1000px;
+  width: 100%;
   max-width: 1000px;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-  background: #fff;
-  display: inline-block;
+  min-width: 320px;
+  margin: auto;
 }
 
   .campus-img {
-  width: 1000px;
-  min-width: 1000px;
-  max-width: 1000px;
-  height: auto;
+  width: 100%;
   display: block;
+  height: auto;
 }
 
   .label {
-    position: absolute;
-    background: rgba(255, 255, 255, 0.85);
-    color: #222;
-    padding: 6px 12px;
-    border-radius: 8px;
-    font-size: 14px;
-    font-weight: 600;
-    backdrop-filter: blur(8px);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-    white-space: nowrap;
-    cursor: pointer;
-    transition: all 0.25s ease;
-    z-index: 10;
-  }
+  position: absolute;
+  background: rgba(255, 255, 255, 0.85);
+  color: #222;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  z-index: 10;
+}
 
   .label::after {
-    content: '';
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    border: 6px solid transparent;
-    border-top-color: rgba(255, 255, 255, 0.85);
-  }
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: rgba(255, 255, 255, 0.85);
+}
 
-  .label:hover {
-    background: #0078ff;
-    color: #fff;
-    transform: translateY(-3px);
-  }
+.label:hover {
+  background: #0078ff;
+  color: #fff;
+  transform: translateY(-3px);
+}
 
   /* MODAL */
   .modal {
